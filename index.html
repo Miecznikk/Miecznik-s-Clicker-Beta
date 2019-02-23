@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+	<meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya|Space+Mono&amp;subset=latin-ext" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Miecznik's Clickerrr</title>
+	<audio id="onClick">
+		<source src="mp3/click.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="onClickAdd">
+		<source src="mp3/click_add.mp3" type="audio/mpeg">
+	</audio>
+	<iframe src="mp3/silence.mp3" allow="autoplay" class="silence"></iframe>
+	<audio id="music" autoplay loop>
+    	<source src="mp3/music.mp3" type="audio/mpeg">
+    </audio>
+</head>
+
+<body>
+	<div class="mainWrapper">
+		<header class="gameTitle">
+			<h1>Miecznik's Clicker Game</h1>
+			<p>Have fun</p>
+			<p class="emoji">:-)</p>
+		</header>
+		<div class="wrapper">
+			<aside class="perks">
+				<div class="perk">
+					<figure class="clickOnPerk"><img src="img/banan.png" id="banana" alt="banan"></figure>
+					<div class="tooltip">
+						<p class="tooltipText">Błogosławieństwo Kamila Kiedy- banan dorzuca ci hajs na następne ulepszenia! następne 3 zakupy będą cię kosztować 25% mniej!</p>
+					</div>
+					<p class="costOfPerk" id="banana-cost">30 000</p>
+				</div>
+				<div class="perk" >
+					<figure class="clickOnPerk"><img src="img/git.png" id="git" alt="GIT"></figure>
+					<div class="tooltip">
+						<p class="tooltipText">Klątwa GIT SQUADU- królowa GIT SQUADU zaczyna coś mówić o drugim domu. Wszystkich uczniów to denerwuje więc generują 1.5x dochód przez 30 sekund!</p>
+					</div>
+					<p class="costOfPerk" id="git-cost">75 000</p>
+				</div>
+				<div class="perk" >
+					<figure class="clickOnPerk"><img src="img/projektor.png" id="projektor" alt="projektor"></figure>
+					<div class="tooltip">
+						<p class="tooltipText">incoming soon </p>
+					</div>
+					<p class="costOfPerk" id="projektor-cost">2137</p>
+				</div>
+				<div class="perk" >
+					<figure class="clickOnPerk"><img src="img/chlud.png" id="snowFlake" alt="płatek śniegu"></figure>
+					<div class="tooltip">
+						<p class="tooltipText">Chłód Kacpra Świderka- W sali 209 jest tak chłodno, że aby się rozgrzać miecznik klika 2x więcej przez pół minuty!</p>
+					</div>
+					<p class="costOfPerk" id="chlud-cost">50 000</p>
+				</div>
+			</aside>
+			<main class="game">
+				<section class="owning">
+					<h3 class="heja">Posiadasz</h3>
+					<div class="mieczniki">
+						<p><span class="numberOfMieczniki" id="farmed"></span>mieczników</p>
+					</div>
+					<div class="miecznikiPerClick">
+						<p><span class="numberOfMiecznikiPerClick" id="perclick"></span>mieczników per click</p>
+					</div>
+					<div class="miecznikiPerSec">
+						<p><span class="numberOfMiecznikiPerSec" id="persec"></span>mieczników per second</p>
+					</div>
+				</section>
+				<section class="btnOfMiecznik" id="miecznikCont">
+					<img src= "img/miecznik.jpg" class="miecznik" id="mainMiecznik" draggable="false">
+				</section>
+				<section class="artifacts">
+					<h3>Artefakty</h3>
+					<div class="artifact flexElement">
+						<div class="artifactWrapper flexWrapper" id="pilotDiv">
+							<p>Pilot do rzutnika</p>
+							<p>+<span class="pilotBonus">1</span>mpc</p>
+						</div>
+						<span class="cost costOfPilot"></span>
+						<div class="tooltip">
+							<p class="tooltipText">Jedyne używane na nim przyciski to włącz/wyłącz oraz freeze, ma fajny laser.</p>
+						</div>
+					</div>
+					<div class="artifact flexElement">
+						<div class="artifactWrapper flexWrapper" id="hasloDiv">
+							<p>Hasło do laptopa</p>
+							<p>+<span class="passBonus">6</span>mpc</p>
+						</div>
+						<span class="cost costOfPass"></span>
+						<div class="tooltip">
+							<p class="tooltipText">Każde hasło ma swoją głęboką wskazówkę, przez długi czas hasłem było 2012, aż w końcu Miecznik je zapomniał.</p>
+						</div>
+					</div>
+					<div class="artifact flexElement">
+						<div class="artifactWrapper flexWrapper" id="tipDiv">
+							<p>Wskazówka do mapy</p>
+							<p>+<span class="tipBonus">12</span>mpc</p>
+						</div>
+						<span class="cost costOfTip"></span>
+						<div class="tooltip">
+							<p class="tooltipText">Wskazówka do mapy, do której zazwyczaj podchodzi uczeń o wysokiej aparycji oraz inteligencji.</p>
+						</div>
+					</div>
+					<div class="artifact flexElement">
+						<div class="artifactWrapper flexWrapper" id="salaDiv">
+							<p>Klucz do sali 209</p>
+							<p>+<span class="key209Bonus">50</span>mpc</p>
+						</div>
+						<span class="cost costOfKey209"></span>
+						<div class="tooltip">
+							<p class="tooltipText">Sala 209 jest jego fortecą, większość artefaktów jest przechowywana właśnie tam.</p>
+						</div>
+					</div>
+					<div class="artifact flexElement">
+						<div class="artifactWrapper flexWrapper" id="zapleczeDiv">
+							<p>Klucz do zaplecza</p>
+							<p>+<span class="artifactBonus">100</span>mpc</p>
+						</div>
+						<span class="cost costOfZaplecze"></span>
+						<div class="tooltip">
+							<p class="tooltipText">Zaplecze jest najważniejszą częścią życia Miecznika, trzyma tam pożywienie oraz bronie, których użyje do zniszczenia uczniów.</p>
+						</div>
+					</div>
+				</section>
+				<section class="fishes">
+					<img src="img/rybka.png" class="firstFish">
+					<img src="img/rybka2.png" class="secondFish">
+					<p></p>
+				</section>
+				<section class="students">
+					<h3>Uczniowie</h3>
+					<div class="student flexElement" >
+						<div class="studentWrapper flexWrapper" id="zamojda">
+							<p>Żamojda Jakub</p>
+							<p>+<span class="zamojdaBonus">1</span>mps</p>
+						</div>
+						<span class="cost costOfZamojda">50</span>
+						<div class="tooltip">
+							<p class="tooltipText">Nadal nie zabrał papierów i nadal chce robić muzyke debil</p>
+						</div>
+					</div>
+					<div class="student flexElement" >
+						<div class="studentWrapper flexWrapper" id="maurycy">
+							<p>Zdanowicz Maurycy</p>
+							<p>+<span class="maurycyBonus">15</span>mps</p>
+						</div>
+						<span class="cost costOfMaurycy">500</span>
+						<div class="tooltip">
+							<p class="tooltipText">Grubas chowa kurtki w szafach na pomoce naukowe, IV G go ubóstwia.</p>
+						</div>
+					</div>
+					<div class="student flexElement" >
+						<div class="studentWrapper flexWrapper" id="giru">
+							<p>Girucki Hubert</p>
+							<p>+<span class="giruBonus">40</span>mps</p>
+						</div>
+						<span class="cost costOfGiru">0</span>
+						<div class="tooltip">
+							<p class="tooltipText">Internet Explorer, piesek miecznika, w dniu w którym to piszę został [HORAZYM]. Boi się mówić tinder xddd</p>
+						</div>
+					</div>
+					<div class="student flexElement">
+						<div class="studentWrapper flexWrapper"  id="tomek">
+							<p>Danilczuk Tomasz</p>
+							<p>+<span class="tomekBonus">185</span>mps</p>
+						</div>
+						<span class="cost costOfTomek">0</span>
+						<div class="tooltip">
+							<p class="tooltipText">Pryzmat, dyzajnyt, po prostu idiota, robi chujowe portfolio na facebooku, beka z typa.</p>
+						</div>
+					</div>
+					<div class="student flexElement" >
+						<div class="studentWrapper flexWrapper" id="krychu">
+							<p>Krychniak Michał</p>
+							<p>+<span class="krychuBonus">250</span>mps</p>
+						</div>
+						<span class="cost costOfKrychu">0</span>
+						<div class="tooltip">
+							<p class="tooltipText">Największy psychopata świata. Nikt nie wie do czego jest zdolny i kiedy w końcu kogoś zamorduje.</p>
+						</div>
+					</div>
+					<div class="student flexElement" >
+						<div class="studentWrapper flexWrapper" id="dominik">
+							<p>Gudalewski Dominik</p>
+							<p>+<span class="dominikBonus">500</span>mps</p>
+						</div>
+						<span class="cost costOfDominik"></span>
+						<div class="tooltip">
+							<p class="tooltipText">Największy (choć niski) wróg Miecznika, wyłącza projektory multimedialne i vapuje na każdej przerwie. </p>
+						</div>
+					</div>
+					<div class="student flexElement"  >
+						<div class="studentWrapper flexWrapper" id="rydzu">
+							<p>Rydzewski Sebastian</p>
+							<p>+<span class="rydzuBonus">1200</span>mps</p>
+						</div>
+						<span class="cost costOfRydzu">0</span>
+						<div class="tooltip">
+							<p class="tooltipText">Pokona Bin Ladena, niczego nie pragnie bardziej niż otwarcia drzwi i dojścia na białostoczek.</p>
+						</div>
+					</div>
+					<div class="student flexElement" >
+						<div class="studentWrapper flexWrapper" id="swiderski">
+							<p>Świderek Kacper</p>
+							<p>+<span class="swiderskiBonus">5000</span>mps</p>
+						</div>
+						<span class="cost costOfSwiderski">0</span>
+						<div class="tooltip">
+							<p class="tooltipText">*...*</p>
+						</div>
+					</div>
+					<div class="student flexElement">
+						<div class="studentWrapper flexWrapper"  id="poskrobko">
+							<p>Poskrobko Hubert</p>
+							<p>+<span class="poskrobkoBonus">30000</span>mps</p>
+						</div>
+						<span class="cost costOfPoskrobko">0</span>
+						<div class="tooltip">
+							<p class="tooltipText">Prawdziwa legenda, jego imię przyprawia Miecznika o dreszcze, podobno udało mu się uścisnąć dłoń profesora.</p>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+		<section class="buttons">
+        	<img src="img/icons/play.png" alt="music" class="bg_music" id="musicBut">
+        	<img src="img/icons/sound-on.png" alt="soundon" class="sound" id="soundBut">
+        	<img src="img/icons/restart.png" alt="restart" class="res" id="restartBut">
+		</section>
+		<footer>
+			Miecznik's Clicker Beta v1.0 &copy; Mieczniki Industries
+		</footer>
+	</div>
+	<script src="dist/bundle.js"></script>
+</body>
+
+</html>
