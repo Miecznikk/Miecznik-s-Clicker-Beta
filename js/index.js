@@ -54,7 +54,7 @@ function audioPlay(audio){
 function AntiAutoClicker(){
     clearInterval(AntiAC_interval);
     AntiAC_interval=setInterval(()=>{
-        if (clicksPerSec>11){
+        if (clicksPerSec>14){
             chlud.multiplier=0;
             git.multiplier=0;
             Reset();
